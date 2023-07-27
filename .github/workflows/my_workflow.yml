@@ -1,4 +1,4 @@
-name: Hexlet project
+name: my_check
 
 on:
   - push

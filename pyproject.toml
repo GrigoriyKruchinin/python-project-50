@@ -8,7 +8,7 @@ packages = [{include = "gendiff"}]
 
 
 [tool.poetry.dependencies]
-python = "^3.11"
+python = ">=3.11,<4.0"
 coverage = "^7.2.7"
 pyyaml = "^6.0"
 
