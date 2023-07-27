@@ -2,8 +2,8 @@
 ***
 [![Actions Status](https://github.com/GrigoriyKruchinin/python-project-50/workflows/hexlet-check/badge.svg)](https://github.com/GrigoriyKruchinin/python-project-50/actions)
 [![Check_my_Actions](https://github.com/GrigoriyKruchinin/python-project-50/actions/workflows/my_workflow.yml/badge.svg)](https://github.com/GrigoriyKruchinin/python-project-50/actions)
-
-
+[![Maintainability](https://api.codeclimate.com/v1/badges/494bdd544175e66ad82b/maintainability)](https://codeclimate.com/github/GrigoriyKruchinin/python-project-50/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/494bdd544175e66ad82b/test_coverage)](https://codeclimate.com/github/GrigoriyKruchinin/python-project-50/test_coverage)
 __"Вычислитель отличий" (gendiff)__ - второй проект, разработанный в рамках обучения на курсе Хекслет. Это инструмент командной строки для поиска различий между двумя файлами.
 
 ***
@@ -62,11 +62,6 @@ poetry run gendiff -f plain tests/fixtures/file1.json tests/fixtures/file2.json
 ```
 poetry run gendiff -f json tests/fixtures/file1.json tests/fixtures/file2.json
 ```
-***
-
-## Дополнительные возможности
-- Вы также можете добавить команды в Makefile для упрощения работы с проектом.
-- Результат выполнения команд будет отображен в командной строке, а также сохранен в файл tests/fixtures/output_result.txt.
 ***
 ## Контакты
 - Автор: Grigoriy Kruchinin
