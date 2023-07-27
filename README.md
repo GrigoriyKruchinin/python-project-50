@@ -1,7 +1,7 @@
 # Вычислитель отличий (gendiff)
 ***
 [![Actions Status](https://github.com/GrigoriyKruchinin/python-project-50/workflows/hexlet-check/badge.svg)](https://github.com/GrigoriyKruchinin/python-project-50/actions)
-
+[![Check_my_Actions](https://github.com/GrigoriyKruchinin/python-project-50/actions/workflows/my_workflow.yml/badge.svg)](https://github.com/GrigoriyKruchinin/python-project-50/actions)
 
 
 __"Вычислитель отличий" (gendiff)__ - второй проект, разработанный в рамках обучения на курсе Хекслет. Это инструмент командной строки для поиска различий между двумя файлами.
