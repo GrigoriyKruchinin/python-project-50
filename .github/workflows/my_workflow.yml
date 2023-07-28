@@ -32,11 +32,12 @@ jobs:
       - name: Test
         run: |
           make test-cov
-      - name: Test coverage
+      - name: Report coverage
         run: |
           coverage lcov
+          ln -s $(pwd)/coverage.lcov $(pwd)/coverage/lcov.info
       - name: Sending Reporter
         env:
           GITHUB_TOKEN: ${{ secrets.Coverage }} 
         run: |
-          ./cc-test-reporter after-build -r "$GITHUB_TOKEN"
+          ./cc-test-reporter after-build -r "$GITHUB_TOKEN" -t lcov
