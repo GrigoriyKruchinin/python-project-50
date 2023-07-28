@@ -34,13 +34,7 @@ def test_format_diff_plain():
                 {'action': 'modified',
                  'name_key': 'setting4',
                  'old_value': False,
-                 'new_value': [
-                    {
-                     'action': 'added',
-                     'name_key': 'setting5',
-                     'new_value': 'boo'
-                     }
-                 ]}
+                 'new_value': [{'action': 'added', 'name_key': 'setting5', 'new_value': 'boo'}]}  # noqa: E501
             ]
         }
     ]
