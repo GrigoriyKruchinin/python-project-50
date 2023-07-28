@@ -56,7 +56,7 @@ def test_format_nested_value():
     assert result == [
         {'action': 'unchanged', 'name_key': 'a', 'value': 1},
         {'action': 'unchanged', 'name_key': 'b', 'value': 2}
-        ]
+    ]
 
 
 def test_generate_diff():

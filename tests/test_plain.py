@@ -35,9 +35,11 @@ def test_format_diff_plain():
                  'name_key': 'setting4',
                  'old_value': False,
                  'new_value': [
-                    {'action': 'added',
+                    {
+                     'action': 'added',
                      'name_key': 'setting5',
-                     'new_value': 'boo'}
+                     'new_value': 'boo'
+                     }
                  ]}
             ]
         }
