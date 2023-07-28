@@ -1,5 +1,5 @@
-from gendiff.generate_diff import (
-    generate_diff, format_nested_value, for_add, for_delete, for_nested
+from gendiff.generate import (
+    generate, format_nested_value, for_add, for_delete, for_nested
 )
 
 
@@ -62,7 +62,7 @@ def test_format_nested_value():
 def test_generate_diff():
     file1 = {'common': {'setting1': 'Value 1', 'setting2': 200}}
     file2 = {'common': {'setting1': 'Value 1', 'setting3': None}}
-    result = generate_diff(file1, file2)
+    result = generate(file1, file2)
     assert result == [
         {'action': 'unchanged', 'name_key': 'common', 'value': [
             {'action': 'unchanged', 'name_key': 'setting1', 'value': 'Value 1'},
