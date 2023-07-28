@@ -32,9 +32,7 @@ jobs:
       - name: Test and Report coverage
         run: |
           poetry run coverage run -m pytest
-          mkdir -p coverage
-          poetry run coverage lcov
-          cp coverage.lcov /home/grisha/python-project-50/coverage/lcov.info
+          poetry run coverage lcov -o coverage/lcov.info
       - name: Sending Reporter
         env:
           GITHUB_TOKEN: ${{ secrets.Coverage }} 
