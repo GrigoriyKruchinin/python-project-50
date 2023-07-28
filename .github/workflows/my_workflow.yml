@@ -35,7 +35,11 @@ jobs:
       - name: Test coverage
         run: |
           coverage lcov
-          ln -s $(pwd)/coverage.lcov $(pwd)/coverage/lcov.info
+          if [ -f "coverage/lcov.info" ]; then
+            rm coverage/lcov.info
+          fi
+          ln -s "$(pwd)/coverage.lcov" "$(pwd)/coverage/lcov.info"
+          ls -l "$(pwd)/coverage/lcov.info"
       - name: Sending Reporter
         env:
           GITHUB_TOKEN: ${{ secrets.Coverage }} 
