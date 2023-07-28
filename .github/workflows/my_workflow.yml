@@ -1,8 +1,8 @@
 name: my_check
 
 on:
-  - push
-  - pull_request
+  push:
+  pull_request:
 
 jobs:
   build:
@@ -29,12 +29,11 @@ jobs:
           curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
           chmod +x ./cc-test-reporter
           ./cc-test-reporter before-build
-      - name: Test
+      - name: Test and Report coverage
         run: |
-          make test-cov
-      - name: Report coverage
-        run: |
-          coverage lcov
+          poetry run coverage run -m pytest
+          mkdir -p coverage  # Создаем папку coverage, если она не существует
+          poetry run coverage lcov
           mv coverage.lcov /home/grisha/python-project-50/coverage/lcov.info
       - name: Sending Reporter
         env:
