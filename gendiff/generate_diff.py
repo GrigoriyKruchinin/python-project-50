@@ -52,16 +52,16 @@ def format_nested_value(value):
     return value
 
 
-def generate_diff(file1, file2):
-    keys = file1.keys() | file2.keys()
-    added = file2.keys() - file1.keys()
-    deleted = file1.keys() - file2.keys()
+def generate_diff(data1, data2):
+    keys = data1.keys() | data2.keys()
+    added = data2.keys() - data1.keys()
+    deleted = data1.keys() - data2.keys()
 
     diff = []
 
     for key in keys:
-        value1 = file1.get(key)
-        value2 = file2.get(key)
+        value1 = data1.get(key)
+        value2 = data2.get(key)
 
         if key in added:
             diff.append(for_add(key, value2))
