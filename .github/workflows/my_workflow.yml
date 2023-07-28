@@ -32,7 +32,7 @@ jobs:
       - name: Test and Report coverage
         run: |
           poetry run coverage run -m pytest
-          mkdir -p coverage  # Создаем папку coverage, если она не существует
+          mkdir -p coverage
           poetry run coverage lcov
           mv coverage.lcov /home/grisha/python-project-50/coverage/lcov.info
       - name: Sending Reporter
