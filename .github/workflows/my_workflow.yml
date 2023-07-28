@@ -35,7 +35,7 @@ jobs:
       - name: Report coverage
         run: |
           coverage lcov
-          ln -s $(pwd)/coverage.lcov $(pwd)/coverage/lcov.info
+          mv coverage.lcov /home/grisha/python-project-50/coverage/lcov.info
       - name: Sending Reporter
         env:
           GITHUB_TOKEN: ${{ secrets.Coverage }} 
