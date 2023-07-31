@@ -1,0 +1,3 @@
+Property 'common.setting2' was removed
+Property 'common.setting3' was added with value: null
+Property 'common.setting4' was updated. From false to [complex value]

@@ -1,3 +1,6 @@
+import os
+import json
+import pytest
 from gendiff.formatters.stylish import format_value, make_stylish_result
 
 
@@ -10,22 +13,23 @@ def test_format_value():
     assert {'a': 'b'} == format_value({'a': 'b'}, 0)
 
 
-def test_make_stylish_result():
-    input_diff = [
-        {'action': 'unchanged', 'name_key': 'common', 'value': [
-            {'action': 'unchanged', 'name_key': 'setting1', 'value': 'Value 1'},
-            {'action': 'deleted', 'name_key': 'setting2', 'old_value': 200},
-            {'action': 'added', 'name_key': 'setting3', 'new_value': None}
-        ]}
-    ]
-    expected_result = (
-        "{\n"
-        "    common: {\n"
-        "        setting1: Value 1\n"
-        "      - setting2: 200\n"
-        "      + setting3: null\n"
-        "    }\n"
-        "}"
+@pytest.fixture
+def input_diff():
+    fixture_path = os.path.join(
+        'tests', 'fixtures', 'input_diff_for_stylish.json'
     )
+    with open(fixture_path) as file:
+        return json.load(file)
 
+
+@pytest.fixture
+def expected_result():
+    fixture_path = os.path.join(
+        'tests', 'fixtures', 'expected_result_for_stylish.txt'
+    )
+    with open(fixture_path) as file:
+        return file.read()
+
+
+def test_make_stylish_result(input_diff, expected_result):
     assert make_stylish_result(input_diff) == expected_result

@@ -1,0 +1,23 @@
+[
+    {
+        "action": "unchanged",
+        "name_key": "common",
+        "value": [
+            {
+                "action": "unchanged",
+                "name_key": "setting1",
+                "value": "Value 1"
+            },
+            {
+                "action": "deleted",
+                "name_key": "setting2",
+                "old_value": 200
+            },
+            {
+                "action": "added",
+                "name_key": "setting3",
+                "new_value": null
+            }
+        ]
+    }
+]
