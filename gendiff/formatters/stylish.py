@@ -16,9 +16,9 @@ def format_value(value, spaces_count):
 
 
 def make_stylish_result(diff, spaces_count=2):
+    indent = SEPARATOR * spaces_count
     formatted_diff = []
     for item in diff:
-        indent = SEPARATOR * spaces_count
         key_name = item["name_key"]
         current_value = format_value(item.get("value"), spaces_count)
         old_value = format_value(item.get("old_value"), spaces_count)
