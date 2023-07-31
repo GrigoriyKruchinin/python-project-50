@@ -8,7 +8,7 @@ from gendiff.parse import parse_data
 def expected_data(file_name):
     file_path = os.path.join(
         'tests', 'fixtures', f'expected_for_parse_{file_name}.json'
-        )
+    )
     with open(file_path) as file:
         return json.load(file)
 
