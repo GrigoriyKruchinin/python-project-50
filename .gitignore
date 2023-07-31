@@ -6,4 +6,6 @@ dist/
 .pytest_cache/
 .idea/
 .vscode/
+coverage/
+.coverage
 test-coverage-tool
