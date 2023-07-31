@@ -9,3 +9,4 @@ dist/
 coverage/
 .coverage
 test-coverage-tool
+htmlcov/
