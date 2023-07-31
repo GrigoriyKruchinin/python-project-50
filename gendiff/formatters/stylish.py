@@ -1,4 +1,4 @@
-SEPARATOR = " "
+SEP = " "
 
 
 def format_value(value, spaces_count):
@@ -16,24 +16,24 @@ def format_value(value, spaces_count):
 
 
 def make_stylish_result(diff, spaces_count=2):
-    indent = SEPARATOR * spaces_count
-    formatted_diff = []
+    indent = SEP * spaces_count
+    formatted = []
     for item in diff:
         key_name = item["name_key"]
         current_value = format_value(item.get("value"), spaces_count)
         old_value = format_value(item.get("old_value"), spaces_count)
         new_value = format_value(item.get("new_value"), spaces_count)
         if item["action"] == "unchanged":
-            formatted_diff.append(f"{indent}  {key_name}: {current_value}")
+            formatted.append(f"{indent}  {key_name}: {current_value}")
         elif item["action"] == "modified":
-            formatted_diff.append(f"{indent}- {key_name}: {old_value}")
-            formatted_diff.append(f"{indent}+ {key_name}: {new_value}")
+            formatted.append(f"{indent}- {key_name}: {old_value}")
+            formatted.append(f"{indent}+ {key_name}: {new_value}")
         elif item["action"] == "deleted":
-            formatted_diff.append(f"{indent}- {key_name}: {old_value}")
+            formatted.append(f"{indent}- {key_name}: {old_value}")
         elif item["action"] == "added":
-            formatted_diff.append(f"{indent}+ {key_name}: {new_value}")
+            formatted.append(f"{indent}+ {key_name}: {new_value}")
 
-    return f"{{\n{chr(10).join(formatted_diff)}\n{SEPARATOR * (spaces_count - 2)}}}"  # noqa: E501
+    return f"{{\n{chr(10).join(formatted)}\n{SEP * (spaces_count - 2)}}}"
 
 
 def format_diff_stylish(data):
