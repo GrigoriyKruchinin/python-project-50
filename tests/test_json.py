@@ -1,25 +1,16 @@
-import os
-import json
 import pytest
 from gendiff.formatters.json import format_diff_json
+from test_utils import get_input_data, get_expected_result
 
 
 @pytest.fixture
 def input_diff():
-    fixture_path = os.path.join(
-        'tests', 'fixtures', 'input_diff_for_json.json'
-    )
-    with open(fixture_path) as file:
-        return json.load(file)
+    return get_input_data('input_diff_for_json.json')
 
 
 @pytest.fixture
 def expected_result():
-    fixture_path = os.path.join(
-        'tests', 'fixtures', 'expected_result_for_json.txt'
-    )
-    with open(fixture_path) as file:
-        return file.read()
+    return get_expected_result('expected_result_for_json.txt')
 
 
 def test_format_diff_json(input_diff, expected_result):

@@ -1,28 +1,28 @@
-import os
 import json
 import pytest
 from gendiff.parse import parse_data_from_file
+from test_utils import get_expected_result
 
 
 @pytest.fixture
-def expected_data(file_name):
-    file_path = os.path.join(
-        'tests', 'fixtures', f'expected_for_parse_{file_name}.json'
-    )
-    with open(file_path) as file:
-        return json.load(file)
+def input_file_path(request):
+    return request.param
 
 
-@pytest.mark.parametrize('file_name', ['file1', 'file2'])
-def test_parse(file_name, expected_data):
-    file_path_json = f"tests/fixtures/{file_name}.json"
-    file_path_yml = f"tests/fixtures/{file_name}.yml"
+@pytest.fixture
+def expected_result(request):
+    return get_expected_result(request.param)
 
-    actual_data_json = parse_data_from_file(file_path_json)
-    actual_data_yml = parse_data_from_file(file_path_yml)
 
-    assert actual_data_json == expected_data
-    assert actual_data_yml == expected_data
+@pytest.mark.parametrize('input_file_path, expected_result', [
+    ('tests/fixtures/file1.json', 'expected_result_for_parse_file1.json'),
+    ('tests/fixtures/file1.yml', 'expected_result_for_parse_file1.json'),
+    ('tests/fixtures/file2.json', 'expected_result_for_parse_file2.json'),
+    ('tests/fixtures/file2.yml', 'expected_result_for_parse_file2.json')
+], indirect=['input_file_path', 'expected_result'])
+def test_parse(input_file_path, expected_result):
+    actual_data = parse_data_from_file(input_file_path)
+    assert actual_data == json.loads(expected_result)
 
 
 def test_unsupported_format():
