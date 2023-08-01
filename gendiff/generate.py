@@ -35,11 +35,6 @@ def for_nested(key, value1, value2):
     if isinstance(value1, dict) and isinstance(value2, dict):
         return for_unchanged(key, generate(value1, value2))
 
-    if isinstance(value1, dict) or isinstance(value2, dict):
-        value1 = value1 or {}
-        value2 = value2 or {}
-        return for_modified(key, value1, value2)
-
     if value1 != value2:
         return for_modified(key, value1, value2)
 
