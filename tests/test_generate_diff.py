@@ -24,3 +24,15 @@ def test_generate_diff(file1_name, file2_name, formatter):
     actual_result = generate_diff(file1_path, file2_path, formatter)
 
     assert actual_result == expected_result
+
+
+@pytest.mark.parametrize('formatter', ['stylish', 'plain', 'json'])
+@pytest.mark.parametrize('file1_name, file2_name', [
+    ('file1.json', 'file3.txt'),
+    ('file2.yml', 'file3.txt')
+])
+def test_unsupported_formatter(file1_name, file2_name, formatter):
+    file1_path = get_file_path(file1_name)
+    file2_path = get_file_path(file2_name)
+    with pytest.raises(ValueError):
+        generate_diff(file1_path, file2_path, formatter)
