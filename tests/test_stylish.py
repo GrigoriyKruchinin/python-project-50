@@ -9,7 +9,7 @@ def test_format_value():
     assert 'string' == format_value('string', 0)
     assert '10' == format_value(10, 0)
     assert '10.0' == format_value(10.0, 0)
-    assert {'a': 'b'} == format_value({'a': 'b'}, 0)
+    assert f"{{'a': 'b'}}" == format_value({'a': 'b'}, 0)
 
 
 @pytest.fixture
