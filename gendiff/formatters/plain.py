@@ -11,7 +11,7 @@ def format_value(value):
         return str(value)
 
 
-def format_diff_plain(diff, path=''):  # noqa: C901
+def make_plain_result(diff, path=''):
     result = []
     for item in diff:
         current_key = item.get('name_key')
@@ -31,6 +31,10 @@ def format_diff_plain(diff, path=''):  # noqa: C901
                           f"From {old_value} to {new_value}")
         elif action == 'unchanged':
             if isinstance(item.get('value'), list):
-                result.append(format_diff_plain(item['value'], current_path))
+                result.append(make_plain_result(item['value'], current_path))
 
     return '\n'.join(result)
+
+
+def format_diff_plain(data):
+    return make_plain_result(data)
