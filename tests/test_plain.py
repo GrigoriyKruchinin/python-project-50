@@ -21,7 +21,6 @@ def test_format_value(input_value, expected_value):
     assert format_value(input_value) == expected_value
 
 
-
 @pytest.fixture
 def input_diff():
     return get_input_data('input_diff_for_plain.json')
