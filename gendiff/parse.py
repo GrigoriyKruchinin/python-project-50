@@ -13,21 +13,12 @@ def get_file_content(file_path):
         return file.read()
 
 
-def parse_json(content):
-    return json.loads(content)
-
-
-def parse_yaml(content):
-    return yaml.safe_load(content)
-
-
 def parse_data(content, file_format):
     if file_format == 'json':
-        return parse_json(content)
-    elif file_format in ['yml', 'yaml']:
-        return parse_yaml(content)
-    else:
-        raise ValueError(f"Unsupported file format: {file_format}")
+        return json.loads(content)
+    if file_format in ['yml', 'yaml']:
+        return yaml.safe_load(content)
+    raise ValueError(f"Unsupported file format: {file_format}")
 
 
 def parse_data_from_file(file_path):
