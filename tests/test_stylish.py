@@ -4,12 +4,12 @@ from test_utils import get_input_data, get_expected_result
 
 
 def test_format_value():
-    assert 'null' == format_value(None, 0)
-    assert 'true' == format_value(True, 0)
-    assert 'string' == format_value('string', 0)
-    assert '10' == format_value(10, 0)
-    assert '10.0' == format_value(10.0, 0)
-    assert "{'a': 'b'}" == format_value({'a': 'b'}, 0)
+    assert 'null' == format_value(None)
+    assert 'true' == format_value(True)
+    assert 'string' == format_value('string')
+    assert '10' == format_value(10)
+    assert '10.0' == format_value(10.0)
+    assert "{'a': 'b'}" == format_value({'a': 'b'})
 
 
 @pytest.fixture

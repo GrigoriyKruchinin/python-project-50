@@ -4,7 +4,7 @@ DELETE = '- '
 NONE = '  '
 
 
-def format_value(value, spaces_count):
+def format_value(value, spaces_count=0):
     if value is None:
         return "null"
     if isinstance(value, bool):
