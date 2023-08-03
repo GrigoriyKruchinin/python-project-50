@@ -1,0 +1,152 @@
+[
+    {
+        "action": "unchanged",
+        "name_key": "common",
+        "value": [
+            {
+                "action": "added",
+                "name_key": "follow",
+                "new_value": false
+            },
+            {
+                "action": "unchanged",
+                "name_key": "setting1",
+                "value": "Value 1"
+            },
+            {
+                "action": "deleted",
+                "name_key": "setting2",
+                "old_value": 200
+            },
+            {
+                "action": "modified",
+                "name_key": "setting3",
+                "new_value": null,
+                "old_value": true
+            },
+            {
+                "action": "added",
+                "name_key": "setting4",
+                "new_value": "blah blah"
+            },
+            {
+                "action": "added",
+                "name_key": "setting5",
+                "new_value": [
+                    {
+                        "action": "unchanged",
+                        "name_key": "key5",
+                        "value": "value5"
+                    }
+                ]
+            },
+            {
+                "action": "unchanged",
+                "name_key": "setting6",
+                "value": [
+                    {
+                        "action": "unchanged",
+                        "name_key": "doge",
+                        "value": [
+                            {
+                                "action": "modified",
+                                "name_key": "wow",
+                                "new_value": "so much",
+                                "old_value": ""
+                            }
+                        ]
+                    },
+                    {
+                        "action": "unchanged",
+                        "name_key": "key",
+                        "value": "value"
+                    },
+                    {
+                        "action": "added",
+                        "name_key": "ops",
+                        "new_value": "vops"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "action": "unchanged",
+        "name_key": "group1",
+        "value": [
+            {
+                "action": "modified",
+                "name_key": "baz",
+                "new_value": "bars",
+                "old_value": "bas"
+            },
+            {
+                "action": "unchanged",
+                "name_key": "foo",
+                "value": "bar"
+            },
+            {
+                "action": "modified",
+                "name_key": "nest",
+                "new_value": "str",
+                "old_value": [
+                    {
+                        "action": "unchanged",
+                        "name_key": "key",
+                        "value": "value"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "action": "deleted",
+        "name_key": "group2",
+        "old_value": [
+            {
+                "action": "unchanged",
+                "name_key": "abc",
+                "value": 12345
+            },
+            {
+                "action": "unchanged",
+                "name_key": "deep",
+                "value": [
+                    {
+                        "action": "unchanged",
+                        "name_key": "id",
+                        "value": 45
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "action": "added",
+        "name_key": "group3",
+        "new_value": [
+            {
+                "action": "unchanged",
+                "name_key": "deep",
+                "value": [
+                    {
+                        "action": "unchanged",
+                        "name_key": "id",
+                        "value": [
+                            {
+                                "action": "unchanged",
+                                "name_key": "number",
+                                "value": 45
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "action": "unchanged",
+                "name_key": "fee",
+                "value": 100500
+            }
+        ]
+    }
+]
