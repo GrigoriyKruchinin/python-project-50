@@ -3,13 +3,16 @@ from gendiff.formatters.stylish import format_value, make_stylish_result
 from test_utils import get_input_data, get_expected_result
 
 
-def test_format_value():
-    assert 'null' == format_value(None)
-    assert 'true' == format_value(True)
-    assert 'string' == format_value('string')
-    assert '10' == format_value(10)
-    assert '10.0' == format_value(10.0)
-    assert "{'a': 'b'}" == format_value({'a': 'b'})
+@pytest.mark.parametrize('input_value, expected_value', [
+    (None, 'null'),
+    (True, 'true'),
+    ('string', "string"),
+    (10, '10'),
+    (10.0, '10.0'),
+    ({'a': 'b'}, "{'a': 'b'}")
+])
+def test_format_value(input_value, expected_value):
+    assert format_value(input_value) == expected_value
 
 
 @pytest.fixture
