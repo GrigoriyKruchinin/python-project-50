@@ -1,4 +1,4 @@
-from gendiff.generate import (
+from gendiff.generator import (
     generate, for_add, for_delete, for_nested
 )
 

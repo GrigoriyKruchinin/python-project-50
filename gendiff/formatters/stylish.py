@@ -1,4 +1,4 @@
-from gendiff.generate import generate
+from gendiff.generator import generate
 
 
 SEPARATOR = " "

@@ -1,6 +1,6 @@
 import json
 import pytest
-from gendiff.parse import parse_data_from_file
+from gendiff.parser import parse_data_from_file
 from test_utils import get_expected_result
 
 
