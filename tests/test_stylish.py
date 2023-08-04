@@ -9,7 +9,6 @@ from test_utils import get_input_data, get_expected_result
     ('string', "string"),
     (10, '10'),
     (10.0, '10.0'),
-    ({'a': 'b'}, "{'a': 'b'}")
 ])
 def test_format_value(input_value, expected_value):
     assert format_value(input_value) == expected_value

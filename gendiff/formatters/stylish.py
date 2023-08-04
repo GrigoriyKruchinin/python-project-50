@@ -1,3 +1,6 @@
+from gendiff.generate import generate
+
+
 SEPARATOR = " "
 ADD = '+ '
 DELETE = '- '
@@ -9,6 +12,8 @@ def format_value(value, spaces_count=0):
         return "null"
     if isinstance(value, bool):
         return str(value).lower()
+    if isinstance(value, dict):
+        return make_stylish_result(generate(value, value), spaces_count + 4)
     if isinstance(value, list):
         return make_stylish_result(value, spaces_count + 4)
     return f'{value}'

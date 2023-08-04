@@ -1,5 +1,5 @@
 from gendiff.generate import (
-    generate, format_nested_value, for_add, for_delete, for_nested
+    generate, for_add, for_delete, for_nested
 )
 
 
@@ -45,18 +45,6 @@ def test_for_nested_dict():
             {'action': 'added', 'name_key': 'c', 'new_value': 4}
         ]
     }
-
-
-def test_format_nested_value():
-    result = format_nested_value('test_value')
-    assert result == 'test_value'
-
-    dict_value = {'a': 1, 'b': 2}
-    result = format_nested_value(dict_value)
-    assert result == [
-        {'action': 'unchanged', 'name_key': 'a', 'value': 1},
-        {'action': 'unchanged', 'name_key': 'b', 'value': 2}
-    ]
 
 
 def test_generate_diff():

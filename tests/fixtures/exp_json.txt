@@ -32,13 +32,9 @@
             {
                 "action": "added",
                 "name_key": "setting5",
-                "new_value": [
-                    {
-                        "action": "unchanged",
-                        "name_key": "key5",
-                        "value": "value5"
-                    }
-                ]
+                "new_value": {
+                    "key5": "value5"
+                }
             },
             {
                 "action": "unchanged",
@@ -89,64 +85,32 @@
                 "action": "modified",
                 "name_key": "nest",
                 "new_value": "str",
-                "old_value": [
-                    {
-                        "action": "unchanged",
-                        "name_key": "key",
-                        "value": "value"
-                    }
-                ]
+                "old_value": {
+                    "key": "value"
+                }
             }
         ]
     },
     {
         "action": "deleted",
         "name_key": "group2",
-        "old_value": [
-            {
-                "action": "unchanged",
-                "name_key": "abc",
-                "value": 12345
-            },
-            {
-                "action": "unchanged",
-                "name_key": "deep",
-                "value": [
-                    {
-                        "action": "unchanged",
-                        "name_key": "id",
-                        "value": 45
-                    }
-                ]
+        "old_value": {
+            "abc": 12345,
+            "deep": {
+                "id": 45
             }
-        ]
+        }
     },
     {
         "action": "added",
         "name_key": "group3",
-        "new_value": [
-            {
-                "action": "unchanged",
-                "name_key": "deep",
-                "value": [
-                    {
-                        "action": "unchanged",
-                        "name_key": "id",
-                        "value": [
-                            {
-                                "action": "unchanged",
-                                "name_key": "number",
-                                "value": 45
-                            }
-                        ]
-                    }
-                ]
+        "new_value": {
+            "deep": {
+                "id": {
+                    "number": 45
+                }
             },
-            {
-                "action": "unchanged",
-                "name_key": "fee",
-                "value": 100500
-            }
-        ]
+            "fee": 100500
+        }
     }
 ]
