@@ -1,52 +1,52 @@
 [
     {
         "action": "unchanged",
-        "name_key": "common",
+        "name": "common",
         "value": [
             {
                 "action": "added",
-                "name_key": "follow",
+                "name": "follow",
                 "new_value": false
             },
             {
                 "action": "unchanged",
-                "name_key": "setting1",
+                "name": "setting1",
                 "value": "Value 1"
             },
             {
                 "action": "deleted",
-                "name_key": "setting2",
+                "name": "setting2",
                 "old_value": 200
             },
             {
                 "action": "modified",
-                "name_key": "setting3",
+                "name": "setting3",
                 "new_value": null,
                 "old_value": true
             },
             {
                 "action": "added",
-                "name_key": "setting4",
+                "name": "setting4",
                 "new_value": "blah blah"
             },
             {
                 "action": "added",
-                "name_key": "setting5",
+                "name": "setting5",
                 "new_value": {
                     "key5": "value5"
                 }
             },
             {
                 "action": "unchanged",
-                "name_key": "setting6",
+                "name": "setting6",
                 "value": [
                     {
                         "action": "unchanged",
-                        "name_key": "doge",
+                        "name": "doge",
                         "value": [
                             {
                                 "action": "modified",
-                                "name_key": "wow",
+                                "name": "wow",
                                 "new_value": "so much",
                                 "old_value": ""
                             }
@@ -54,12 +54,12 @@
                     },
                     {
                         "action": "unchanged",
-                        "name_key": "key",
+                        "name": "key",
                         "value": "value"
                     },
                     {
                         "action": "added",
-                        "name_key": "ops",
+                        "name": "ops",
                         "new_value": "vops"
                     }
                 ]
@@ -68,22 +68,22 @@
     },
     {
         "action": "unchanged",
-        "name_key": "group1",
+        "name": "group1",
         "value": [
             {
                 "action": "modified",
-                "name_key": "baz",
+                "name": "baz",
                 "new_value": "bars",
                 "old_value": "bas"
             },
             {
                 "action": "unchanged",
-                "name_key": "foo",
+                "name": "foo",
                 "value": "bar"
             },
             {
                 "action": "modified",
-                "name_key": "nest",
+                "name": "nest",
                 "new_value": "str",
                 "old_value": {
                     "key": "value"
@@ -93,7 +93,7 @@
     },
     {
         "action": "deleted",
-        "name_key": "group2",
+        "name": "group2",
         "old_value": {
             "abc": 12345,
             "deep": {
@@ -103,7 +103,7 @@
     },
     {
         "action": "added",
-        "name_key": "group3",
+        "name": "group3",
         "new_value": {
             "deep": {
                 "id": {

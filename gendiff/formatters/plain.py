@@ -14,7 +14,7 @@ def format_value(value):
 def make_plain_result(diff, path=''):
     result = []
     for item in diff:
-        current_key = item.get('name_key')
+        current_key = item.get('name')
         current_path = f"{path}.{current_key}" if path else current_key
         action = item.get('action')
         old_value = format_value(item.get('old_value'))

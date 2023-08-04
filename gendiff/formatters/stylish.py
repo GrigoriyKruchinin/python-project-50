@@ -23,7 +23,7 @@ def make_stylish_result(diff, spaces_count=2):
     indent = SEPARATOR * spaces_count
     lines = []
     for item in diff:
-        key_name = item["name_key"]
+        key_name = item['name']
         old_value = format_value(item.get("old_value"), spaces_count)
         new_value = format_value(item.get("new_value"), spaces_count)
         if item["action"] == "unchanged":

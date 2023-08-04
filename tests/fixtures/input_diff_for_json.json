@@ -1,31 +1,31 @@
 [
     {
         "action": "unchanged",
-        "name_key": "common",
+        "name": "common",
         "value": [
             {
                 "action": "unchanged",
-                "name_key": "setting1",
+                "name": "setting1",
                 "value": "Value 1"
             },
             {
                 "action": "deleted",
-                "name_key": "setting2",
+                "name": "setting2",
                 "old_value": 200
             },
             {
                 "action": "added",
-                "name_key": "setting3",
+                "name": "setting3",
                 "new_value": null
             },
             {
                 "action": "modified",
-                "name_key": "setting4",
+                "name": "setting4",
                 "old_value": false,
                 "new_value": [
                     {
                         "action": "added",
-                        "name_key": "setting5",
+                        "name": "setting5",
                         "new_value": "boo"
                     }
                 ]

@@ -1,7 +1,7 @@
 def for_add(key, value):
     return {
         'action': 'added',
-        'name_key': key,
+        'name': key,
         'new_value': value
     }
 
@@ -9,7 +9,7 @@ def for_add(key, value):
 def for_delete(key, value):
     return {
         'action': 'deleted',
-        'name_key': key,
+        'name': key,
         'old_value': value
     }
 
@@ -17,7 +17,7 @@ def for_delete(key, value):
 def for_unchanged(key, value):
     return {
         'action': 'unchanged',
-        'name_key': key,
+        'name': key,
         'value': value
     }
 
@@ -25,7 +25,7 @@ def for_unchanged(key, value):
 def for_modified(key, value1, value2):
     return {
         'action': 'modified',
-        'name_key': key,
+        'name': key,
         'new_value': value2,
         'old_value': value1
     }
@@ -59,6 +59,6 @@ def generate(data1, data2):
         else:
             diff.append(for_nested(key, value1, value2))
 
-    sorted_diff = sorted(diff, key=lambda x: x['name_key'])
+    sorted_diff = sorted(diff, key=lambda x: x['name'])
 
     return sorted_diff
