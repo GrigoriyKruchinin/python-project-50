@@ -32,13 +32,11 @@ def for_modified(key, value1, value2):
 
 
 def for_nested(key, value1, value2):
-    if isinstance(value1, dict) and isinstance(value2, dict):
-        return for_unchanged(key, generate(value1, value2))
-
-    if value1 != value2:
-        return for_modified(key, value1, value2)
-
-    return for_unchanged(key, value1)
+    return {
+        'action': 'nested',
+        'name': key,
+        'children': generate(value1, value2)
+    }
 
 
 def generate(data1, data2):
@@ -57,7 +55,12 @@ def generate(data1, data2):
         elif key in deleted:
             diff.append(for_delete(key, value1))
         else:
-            diff.append(for_nested(key, value1, value2))
+            if isinstance(value1, dict) and isinstance(value2, dict):
+                diff.append(for_nested(key, value1, value2))
+            elif value1 != value2:
+                diff.append(for_modified(key, value1, value2))
+            else:
+                diff.append(for_unchanged(key, value1))
 
     sorted_diff = sorted(diff, key=lambda x: x['name'])
 

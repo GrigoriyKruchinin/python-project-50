@@ -1,10 +1,18 @@
-from gendiff.generator import generate
-
-
 SEPARATOR = " "
 ADD = '+ '
 DELETE = '- '
 NONE = '  '
+
+
+def format_for_dict(data, spaces_count=2):
+    indent = SEPARATOR * spaces_count
+    lines = []
+    for key, value in data.items():
+        formatted_value = format_value(value, spaces_count)
+        lines.append(f"{indent}{NONE}{key}: {formatted_value}")
+    formatted_string = '\n'.join(lines)
+    end_indent = SEPARATOR * (spaces_count - 2)
+    return f"{{\n{formatted_string}\n{end_indent}}}"
 
 
 def format_value(value, spaces_count=0):
@@ -12,11 +20,11 @@ def format_value(value, spaces_count=0):
         return "null"
     if isinstance(value, bool):
         return str(value).lower()
-    if isinstance(value, dict):
-        return make_stylish_result(generate(value, value), spaces_count + 4)
     if isinstance(value, list):
         return make_stylish_result(value, spaces_count + 4)
-    return f'{value}'
+    if isinstance(value, dict):
+        return format_for_dict(value, spaces_count + 4)
+    return f"{value}"
 
 
 def make_stylish_result(diff, spaces_count=2):
@@ -36,7 +44,11 @@ def make_stylish_result(diff, spaces_count=2):
             lines.append(f"{indent}{DELETE}{key_name}: {old_value}")
         elif item["action"] == "added":
             lines.append(f"{indent}{ADD}{key_name}: {new_value}")
-
+        elif item['action'] == 'nested':
+            children = make_stylish_result(
+                item.get("children"), spaces_count + 4
+            )
+            lines.append(f"{indent}{NONE}{key_name}: {children}")
     formatted_string = '\n'.join(lines)
     end_indent = SEPARATOR * (spaces_count - 2)
 
