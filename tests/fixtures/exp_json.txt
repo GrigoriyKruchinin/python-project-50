@@ -1,8 +1,8 @@
 [
     {
-        "action": "unchanged",
+        "action": "nested",
         "name": "common",
-        "value": [
+        "children": [
             {
                 "action": "added",
                 "name": "follow",
@@ -37,13 +37,13 @@
                 }
             },
             {
-                "action": "unchanged",
+                "action": "nested",
                 "name": "setting6",
-                "value": [
+                "children": [
                     {
-                        "action": "unchanged",
+                        "action": "nested",
                         "name": "doge",
-                        "value": [
+                        "children": [
                             {
                                 "action": "modified",
                                 "name": "wow",
@@ -67,9 +67,9 @@
         ]
     },
     {
-        "action": "unchanged",
+        "action": "nested",
         "name": "group1",
-        "value": [
+        "children": [
             {
                 "action": "modified",
                 "name": "baz",
