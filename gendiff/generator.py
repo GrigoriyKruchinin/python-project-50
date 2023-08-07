@@ -54,13 +54,12 @@ def generate(data1, data2):
             diff.append(for_add(key, value2))
         elif key in deleted:
             diff.append(for_delete(key, value1))
+        elif isinstance(value1, dict) and isinstance(value2, dict):
+            diff.append(for_nested(key, value1, value2))
+        elif value1 != value2:
+            diff.append(for_modified(key, value1, value2))
         else:
-            if isinstance(value1, dict) and isinstance(value2, dict):
-                diff.append(for_nested(key, value1, value2))
-            elif value1 != value2:
-                diff.append(for_modified(key, value1, value2))
-            else:
-                diff.append(for_unchanged(key, value1))
+            diff.append(for_unchanged(key, value1))
 
     sorted_diff = sorted(diff, key=lambda x: x['name'])
 
