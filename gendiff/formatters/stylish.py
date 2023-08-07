@@ -34,17 +34,18 @@ def make_stylish_result(diff, spaces_count=2):
         key_name = item['name']
         old_value = format_value(item.get("old_value"), spaces_count)
         new_value = format_value(item.get("new_value"), spaces_count)
-        if item["action"] == "unchanged":
+        action = item["action"]
+        if action == "unchanged":
             current_value = format_value(item.get("value"), spaces_count)
             lines.append(f"{indent}{NONE}{key_name}: {current_value}")
-        elif item["action"] == "modified":
+        elif action == "modified":
             lines.append(f"{indent}{DELETE}{key_name}: {old_value}")
             lines.append(f"{indent}{ADD}{key_name}: {new_value}")
-        elif item["action"] == "deleted":
+        elif action == "deleted":
             lines.append(f"{indent}{DELETE}{key_name}: {old_value}")
-        elif item["action"] == "added":
+        elif action == "added":
             lines.append(f"{indent}{ADD}{key_name}: {new_value}")
-        elif item['action'] == 'nested':
+        elif action == 'nested':
             children = make_stylish_result(
                 item.get("children"), spaces_count + 4
             )
