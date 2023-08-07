@@ -82,8 +82,7 @@ def expected_result():
         },
     ]
 
+
 def test_generate(file1, file2, expected_result):
     result = generate(file1, file2)
     assert result == expected_result
-
-
