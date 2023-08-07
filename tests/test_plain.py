@@ -23,12 +23,12 @@ def test_format_value(input_value, expected_value):
 
 @pytest.fixture
 def input_diff():
-    return get_input_data('input_diff_for_plain.json')
+    return get_input_data('input_diff.json')
 
 
 @pytest.fixture
 def expected_result():
-    return get_expected_result('expected_result_for_plain.txt')
+    return get_expected_result('exp_plain.txt')
 
 
 def test_format_diff_plain(input_diff, expected_result):

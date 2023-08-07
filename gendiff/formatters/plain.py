@@ -11,27 +11,40 @@ def format_value(value):
         return str(value)
 
 
+def format_action(action, current_path, old_value, new_value):
+    if action == 'added':
+        return f"Property '{current_path}' was added with value: {new_value}"
+    elif action == 'deleted':
+        return f"Property '{current_path}' was removed"
+    elif action == 'modified':
+        return (
+            f"Property '{current_path}' was updated. "
+            f"From {old_value} to {new_value}"
+        )
+    else:
+        return None
+
+
+def make_plain_result_item(item, path=''):
+    current_key = item.get('name')
+    current_path = f"{path}.{current_key}" if path else current_key
+    action = item.get('action')
+    old_value = format_value(item.get('old_value'))
+    new_value = format_value(item.get('new_value'))
+
+    if action == 'nested':
+        children = item.get('children')
+        return make_plain_result(children, current_path)
+    else:
+        return format_action(action, current_path, old_value, new_value)
+
+
 def make_plain_result(diff, path=''):
     result = []
     for item in diff:
-        current_key = item.get('name')
-        current_path = f"{path}.{current_key}" if path else current_key
-        action = item.get('action')
-        old_value = format_value(item.get('old_value'))
-        new_value = format_value(item.get('new_value'))
-
-        if action == 'added':
-            result.append(
-                f"Property '{current_path}' was added with value: {new_value}"
-            )
-        elif action == 'deleted':
-            result.append(f"Property '{current_path}' was removed")
-        elif action == 'modified':
-            result.append(f"Property '{current_path}' was updated. "
-                          f"From {old_value} to {new_value}")
-        elif action == 'unchanged':
-            if isinstance(item.get('value'), list):
-                result.append(make_plain_result(item['value'], current_path))
+        formatted_item = make_plain_result_item(item, path)
+        if formatted_item is not None:
+            result.append(formatted_item)
 
     return '\n'.join(result)
 
