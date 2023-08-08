@@ -1,4 +1,4 @@
-def format_value(value):
+def to_str(value):
     if isinstance(value, (list, dict)):
         return '[complex value]'
     elif value is None:
@@ -14,23 +14,22 @@ def format_value(value):
 def format_action(action, current_path, old_value, new_value):
     if action == 'added':
         return f"Property '{current_path}' was added with value: {new_value}"
-    elif action == 'deleted':
+    if action == 'deleted':
         return f"Property '{current_path}' was removed"
-    elif action == 'modified':
+    if action == 'modified':
         return (
             f"Property '{current_path}' was updated. "
             f"From {old_value} to {new_value}"
         )
-    else:
-        return None
+    return None
 
 
 def make_plain_result_item(item, path=''):
     current_key = item.get('name')
     current_path = f"{path}.{current_key}" if path else current_key
     action = item.get('action')
-    old_value = format_value(item.get('old_value'))
-    new_value = format_value(item.get('new_value'))
+    old_value = to_str(item.get('old_value'))
+    new_value = to_str(item.get('new_value'))
 
     if action == 'nested':
         children = item.get('children')

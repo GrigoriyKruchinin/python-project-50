@@ -8,20 +8,18 @@ def format_for_dict(data, spaces_count=2):
     indent = SEPARATOR * spaces_count
     lines = []
     for key, value in data.items():
-        formatted_value = format_value(value, spaces_count)
+        formatted_value = to_str(value, spaces_count)
         lines.append(f"{indent}{NONE}{key}: {formatted_value}")
     formatted_string = '\n'.join(lines)
     end_indent = SEPARATOR * (spaces_count - 2)
     return f"{{\n{formatted_string}\n{end_indent}}}"
 
 
-def format_value(value, spaces_count=0):
+def to_str(value, spaces_count=0):
     if value is None:
         return "null"
     if isinstance(value, bool):
         return str(value).lower()
-    if isinstance(value, list):
-        return make_stylish_result(value, spaces_count + 4)
     if isinstance(value, dict):
         return format_for_dict(value, spaces_count + 4)
     return f"{value}"
@@ -32,11 +30,11 @@ def make_stylish_result(diff, spaces_count=2):
     lines = []
     for item in diff:
         key_name = item['name']
-        old_value = format_value(item.get("old_value"), spaces_count)
-        new_value = format_value(item.get("new_value"), spaces_count)
+        old_value = to_str(item.get("old_value"), spaces_count)
+        new_value = to_str(item.get("new_value"), spaces_count)
         action = item["action"]
         if action == "unchanged":
-            current_value = format_value(item.get("value"), spaces_count)
+            current_value = to_str(item.get("value"), spaces_count)
             lines.append(f"{indent}{NONE}{key_name}: {current_value}")
         elif action == "modified":
             lines.append(f"{indent}{DELETE}{key_name}: {old_value}")
