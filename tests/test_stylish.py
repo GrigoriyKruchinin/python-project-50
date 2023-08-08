@@ -1,5 +1,5 @@
 import pytest
-from gendiff.formatters.stylish import format_value, make_stylish_result
+from gendiff.formatters.stylish import to_str, make_stylish_result
 from test_utils import get_input_data, get_expected_result
 
 
@@ -10,8 +10,8 @@ from test_utils import get_input_data, get_expected_result
     (10, '10'),
     (10.0, '10.0'),
 ])
-def test_format_value(input_value, expected_value):
-    assert format_value(input_value) == expected_value
+def test_to_str(input_value, expected_value):
+    assert to_str(input_value) == expected_value
 
 
 @pytest.fixture

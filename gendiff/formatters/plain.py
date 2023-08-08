@@ -11,7 +11,13 @@ def to_str(value):
         return str(value)
 
 
-def format_action(action, current_path, old_value, new_value):
+def make_plain_result_item(item, path=''):
+    current_key = item.get('name')
+    current_path = f"{path}.{current_key}" if path else current_key
+    action = item.get('action')
+    new_value = to_str(item.get('new_value'))
+    old_value = to_str(item.get('old_value'))
+
     if action == 'added':
         return f"Property '{current_path}' was added with value: {new_value}"
     if action == 'deleted':
@@ -21,21 +27,10 @@ def format_action(action, current_path, old_value, new_value):
             f"Property '{current_path}' was updated. "
             f"From {old_value} to {new_value}"
         )
-    return None
-
-
-def make_plain_result_item(item, path=''):
-    current_key = item.get('name')
-    current_path = f"{path}.{current_key}" if path else current_key
-    action = item.get('action')
-    old_value = to_str(item.get('old_value'))
-    new_value = to_str(item.get('new_value'))
-
     if action == 'nested':
         children = item.get('children')
         return make_plain_result(children, current_path)
-    else:
-        return format_action(action, current_path, old_value, new_value)
+    return None
 
 
 def make_plain_result(diff, path=''):

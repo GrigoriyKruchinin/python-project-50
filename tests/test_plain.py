@@ -1,5 +1,5 @@
 import pytest
-from gendiff.formatters.plain import format_diff_plain, format_value
+from gendiff.formatters.plain import format_diff_plain, to_str
 from test_utils import get_input_data, get_expected_result
 
 
@@ -17,8 +17,8 @@ from test_utils import get_input_data, get_expected_result
     ([], "[complex value]"),
     ({}, "[complex value]")
 ])
-def test_format_value(input_value, expected_value):
-    assert format_value(input_value) == expected_value
+def test_to_str(input_value, expected_value):
+    assert to_str(input_value) == expected_value
 
 
 @pytest.fixture
