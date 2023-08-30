@@ -68,8 +68,9 @@ poetry run gendiff -f json tests/fixtures/file1.json tests/fixtures/file2.json
 ***
 ## Контакты
 - Автор: Grigoriy Kruchinin
-- GitHub: https://github.com/GrigoriyKruchinin
-- Email: gkruchinin75@gmail.com
+- [GitHub](https://github.com/GrigoriyKruchinin)
+- [Email](gkruchinin75@gmail.com)
+- [LinkedIn](https://www.linkedin.com/in/grigoriy-kruchinin/)
 ***
 ### Демонстрация работы программы:
 [![asciicast](https://asciinema.org/a/597170.svg)](https://asciinema.org/a/597170)
